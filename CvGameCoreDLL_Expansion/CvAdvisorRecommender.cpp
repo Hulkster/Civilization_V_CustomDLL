@@ -296,184 +296,155 @@ int CvAdvisorRecommender::AdvisorInterestInFlavor(AdvisorTypes eAdvisor, FlavorT
 	switch(eAdvisor)
 	{
 	case ADVISOR_ECONOMIC:
-		if(strFlavorName == "FLAVOR_CITY_DEFENSE")
+		if(strFlavorName ==  "FLAVOR_NAVAL_GROWTH")
 		{
-			return 1;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_NAVAL_GROWTH")
+		else if(strFlavorName ==  "FLAVOR_NAVAL_TILE_IMPROVEMENT")
 		{
-			return 10;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_NAVAL_TILE_IMPROVEMENT")
+		else if(strFlavorName ==  "FLAVOR_EXPANSION")
 		{
-			return 10;
+			return 12;
 		}
-		else if(strFlavorName == "FLAVOR_EXPANSION")
+		else if(strFlavorName ==  "FLAVOR_HAPPINESS")
 		{
-			return 10;
+			return 13;
 		}
-		else if(strFlavorName == "FLAVOR_GROWTH")
+		else if(strFlavorName ==  "FLAVOR_GROWTH")
 		{
-			return 10;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_TILE_IMPROVEMENT")
+		else if(strFlavorName ==  "FLAVOR_PRODUCTION")
 		{
-			return 10;
+			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_INFRASTRUCTURE")
+		else if(strFlavorName ==  "FLAVOR_GOLD")
 		{
-			return 5;
+			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_PRODUCTION")
-		{
-			return 10;
-		}
-		else if(strFlavorName == "FLAVOR_GOLD")
+		else if(strFlavorName ==  "FLAVOR_TILE_IMPROVEMENT")
 		{
 			return 10;
 		}
-		else if(strFlavorName == "FLAVOR_CULTURE")
+		else if(strFlavorName ==  "FLAVOR_INFRASTRUCTURE")
 		{
-			return 10;
+			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_HAPPINESS")
+		else if(strFlavorName ==  "FLAVOR_WATER_CONNECTION")
 		{
-			return 10;
+			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_WONDER")
+		else if(strFlavorName ==  "FLAVOR_WONDER")
 		{
-			return 5;
+			return 4;
 		}
-		else if(strFlavorName == "FLAVOR_WATER_CONNECTION")
-		{
-			return 5;
-		}
-
 		break;
 	case ADVISOR_MILITARY:
-		if(strFlavorName == "FLAVOR_OFFENSE")
+		if(strFlavorName ==  "FLAVOR_MILITARY_TRAINING")
 		{
-			return 10;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_DEFENSE")
+		else if(strFlavorName ==  "FLAVOR_OFFENSE")
 		{
-			return 10;
+			return 6;
 		}
-		else if(strFlavorName == "FLAVOR_CITY_DEFENSE")
+		else if(strFlavorName ==  "FLAVOR_DEFENSE")
 		{
 			return 5;
 		}
-		else if(strFlavorName == "FLAVOR_MILITARY_TRAINING")
+		else if(strFlavorName ==  "FLAVOR_SOLDIER")
+		{
+			return 6;
+		}
+		else if(strFlavorName ==  "FLAVOR_MOBILE")
+		{
+			return 8;
+		}
+		else if(strFlavorName ==  "FLAVOR_ANTI_MOBILE")
+		{
+			return 5;
+		}
+		else if(strFlavorName ==  "FLAVOR_RECON")
+		{
+			return 6;
+		}
+		else if(strFlavorName ==  "FLAVOR_HEALING")
 		{
 			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_RECON")
-		{
-			return 3;
-		}
-		else if(strFlavorName == "FLAVOR_RANGED")
-		{
-			return 10;
-		}
-		else if(strFlavorName == "FLAVOR_MOBILE")
+		else if(strFlavorName ==  "FLAVOR_PILLAGE")
 		{
 			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_NAVAL")
+		else if(strFlavorName ==  "FLAVOR_VANGUARD")
 		{
-			return 10;
+			return 5;
 		}
-		else if(strFlavorName == "FLAVOR_NAVAL_RECON")
+		else if(strFlavorName ==  "FLAVOR_RANGED")
 		{
-			return 3;
+			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_AIR")
+		else if(strFlavorName ==  "FLAVOR_SIEGE")
 		{
-			return 10;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_INFRASTRUCTURE")
+		else if(strFlavorName ==  "FLAVOR_NAVAL")
 		{
-			return 1;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_PRODUCTION")
+		else if(strFlavorName ==  "FLAVOR_NAVAL_BOMBARDMENT")
 		{
-			return 1;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_NUKE")
+		else if(strFlavorName ==  "FLAVOR_AIR")
 		{
-			return 10;
+			return 5;
+		}
+		else if(strFlavorName ==  "FLAVOR_NUKE")
+		{
+			return 11;
+		}
+		else if(strFlavorName ==  "FLAVOR_CITY_DEFENSE")
+		{
+			return 9;
 		}
 		break;
 	case ADVISOR_FOREIGN:
-		if(strFlavorName == "FLAVOR_CITY_DEFENSE")
+		if(strFlavorName ==  "FLAVOR_NAVAL_RECON")
 		{
-			return 1;
+			return 9;
 		}
-		else if(strFlavorName == "FLAVOR_RECON")
+		else if(strFlavorName ==  "FLAVOR_CULTURE")
 		{
-			return 10;
+			return 7;
 		}
-		else if(strFlavorName == "FLAVOR_NAVAL_RECON")
+		else if(strFlavorName ==  "FLAVOR_DIPLOMACY")
 		{
-			return 10;
+			return 8;
 		}
-		else if(strFlavorName == "FLAVOR_GREAT_PEOPLE")
+		else if(strFlavorName ==  "FLAVOR_RELIGION")
 		{
-			return 5;
-		}
-		else if(strFlavorName == "FLAVOR_WONDER")
-		{
-			return 5;
-		}
-		else if(strFlavorName == "FLAVOR_RELIGION")
-		{
-			return 10;
-		}
-		else if(strFlavorName == "FLAVOR_DIPLOMACY")
-		{
-			return 10;
-		}
-		else if(strFlavorName == "FLAVOR_NUKE")
-		{
-			return 5;
+			return 9;
 		}
 		break;
 	case ADVISOR_SCIENCE:
-		if(strFlavorName == "FLAVOR_CITY_DEFENSE")
+		if(strFlavorName ==  "FLAVOR_SCIENCE")
 		{
-			return 1;
+			return 12;
 		}
-		else if(strFlavorName == "FLAVOR_NAVAL_TILE_IMPROVEMENT")
+		else if(strFlavorName ==  "FLAVOR_GREAT_PEOPLE")
 		{
-			return 1;
+			return 6;
 		}
-		else if(strFlavorName == "FLAVOR_TILE_IMPROVEMENT")
+		else if(strFlavorName ==  "FLAVOR_WONDER")
 		{
-			return 1;
+			return 4;
 		}
-		else if(strFlavorName == "FLAVOR_RECON")
+		else if(strFlavorName ==  "FLAVOR_SPACESHIP")
 		{
-			return 3;
-		}
-		else if(strFlavorName == "FLAVOR_NAVAL_RECON")
-		{
-			return 3;
-		}
-		else if(strFlavorName == "FLAVOR_AIR")
-		{
-			return 5;
-		}
-		else if(strFlavorName == "FLAVOR_SCIENCE")
-		{
-			return 10;
-		}
-		else if(strFlavorName == "FLAVOR_SPACESHIP")
-		{
-			return 10;
-		}
-		else if(strFlavorName == "FLAVOR_NUKE")
-		{
-			return 3;
+			return 8;
 		}
 		break;
 	}
