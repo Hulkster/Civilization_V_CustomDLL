@@ -568,18 +568,18 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 					strLoc << GET_PLAYER(eOtherPlayer).getCivilizationInfo().GetTextKey();
 				}
 				//}
-				//else
-				//{
-				//	int iRating = 50;
-				//	// warn player to avoid
-				//	if (iRating > iMessageRating)
-				//	{
-				//		iMessageRating = iRating;
-				//		eAdvisor = ADVISOR_FOREIGN;
-				//		strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_DESTRUCTION_PEACE");
-				//		strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
-				//	}
-				//}
+				else
+				{
+					int iRating = 50;
+					// warn player to avoid
+					if (iRating > iMessageRating)
+					{
+						iMessageRating = iRating;
+						eAdvisor = ADVISOR_FOREIGN;
+						strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_DESTRUCTION_PEACE");
+						strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
+					}
+				}
 			}
 			break;
 			case WAR_PROJECTION_DEFEAT:
@@ -598,18 +598,18 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 				}
 
 				//}
-				//else
-				//{
-				//	// warn player to avoid
-				//	int iRating = 49;
-				//	if (iRating > iMessageRating)
-				//	{
-				//		iMessageRating = iRating;
-				//		eAdvisor = ADVISOR_MILITARY;
-				//		strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_DEFEAT_PEACE");
-				//		strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
-				//	}
-				//}
+				else
+				{
+					// warn player to avoid
+					int iRating = 49;
+					if (iRating > iMessageRating)
+					{
+						iMessageRating = iRating;
+						eAdvisor = ADVISOR_MILITARY;
+						strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_DEFEAT_PEACE");
+						strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
+					}
+				}
 			}
 			break;
 			case WAR_PROJECTION_UNKNOWN:
@@ -651,18 +651,18 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 				}
 
 				//}
-				//else
-				//{
-				//	// we could rough them up
-				//	int iRating = 48;
-				//	if (iRating > iMessageRating)
-				//	{
-				//		iMessageRating = iRating;
-				//		eAdvisor = ADVISOR_FOREIGN;
-				//		strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_GOOD_PEACE");
-				//		strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
-				//	}
-				//}
+				else
+				{
+					// we could rough them up
+					int iRating = 48;
+					if (iRating > iMessageRating)
+					{
+						iMessageRating = iRating;
+						eAdvisor = ADVISOR_FOREIGN;
+						strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_GOOD_PEACE");
+						strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
+					}
+				}
 			}
 			break;
 			case WAR_PROJECTION_VERY_GOOD:
@@ -681,18 +681,18 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 				}
 
 				//}
-				//else
-				//{
-				//	// we could take these guys
-				//	int iRating = 97;
-				//	if (iRating > iMessageRating)
-				//	{
-				//		iMessageRating = iRating;
-				//		eAdvisor = ADVISOR_FOREIGN;
-				//		strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_VERY_GOOD_PEACE");
-				//		strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
-				//	}
-				//}
+				else
+				{
+					// we could take these guys
+					int iRating = 97;
+					if (iRating > iMessageRating)
+					{
+						iMessageRating = iRating;
+						eAdvisor = ADVISOR_FOREIGN;
+						strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_WARPROJECTION_VERY_GOOD_PEACE");
+						strLoc << GC.getCivilizationInfo(GET_PLAYER(eOtherPlayer).getCivilizationType())->GetTextKey();
+					}
+				}
 			}
 			break;
 			}
@@ -1330,7 +1330,7 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 	{
 		int iMessageRating = 0;
 		AdvisorTypes eAdvisor = ADVISOR_FOREIGN;
-		//MinorCivQuestTypes eQuest = NO_MINOR_CIV_QUEST_TYPE;
+		MinorCivQuestTypes eQuest = NO_MINOR_CIV_QUEST_TYPE;
 		PlayerTypes eEnemyPlayer = NO_PLAYER;
 
 		PlayerTypes eMinorPlayer = (PlayerTypes)ui;
@@ -1423,12 +1423,12 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 				}
 			}
 		}
-		/*
+		
 		else
 		{
 			eQuest = pMinorCivAI->GetActiveQuestForPlayer(ePlayer);
 		}
-		*/
+		
 
 
 		if(pMinorCivAI->IsAllies(ePlayer) && pMinorCivAI->IsCloseToNotBeingAllies(ePlayer))
@@ -1441,7 +1441,7 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 				strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
 				strLoc << GET_PLAYER(eEnemyPlayer).getCivilizationInfo().GetTextKey();
 			}
-			/*
+			
 			else if (eQuest != NO_MINOR_CIV_QUEST_TYPE)
 			{
 				int iQuestData = pMinorCivAI->GetQuestData1(ePlayer, eQuest);
@@ -1490,12 +1490,12 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 					break;
 				}
 			}
-			else if (pMinorCivAI->GetTurnsSinceThreatenedByBarbarians() >= 0)
+			else if (pMinorCivAI->GetTurnsSinceThreatenedAnnouncement() >= 0)
 			{
 				strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_ALMOST_LOST_CITY_STATE_ALLY_QUEST_CLEAR_BARBARIANS");
 				strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
 			}
-			*/
+			
 			else
 			{
 				strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_ALMOST_LOST_CITY_STATE_ALLY");
@@ -1512,7 +1512,7 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 				strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
 				strLoc << GET_PLAYER(eEnemyPlayer).getCivilizationInfo().GetTextKey();
 			}
-			/*
+			
 			else if (eQuest != NO_MINOR_CIV_QUEST_TYPE)
 			{
 				int iQuestData = pMinorCivAI->GetQuestData1(ePlayer, eQuest);
@@ -1561,12 +1561,12 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 					break;
 				}
 			}
-			else if (pMinorCivAI->GetTurnsSinceThreatenedByBarbarians() >= 0)
+			else if (pMinorCivAI->GetTurnsSinceThreatenedAnnouncement() >= 0)
 			{
 				strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_ALMOST_LOST_CITY_STATE_FRIENDSHIP_QUEST_CLEAR_BARBARIANS");
 				strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
 			}
-			*/
+			
 			else
 			{
 				strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_ALMOST_LOST_CITY_STATE_FRIENDSHIP");
@@ -1582,7 +1582,7 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 				strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
 				strLoc << GET_PLAYER(eEnemyPlayer).getCivilizationInfo().GetTextKey();
 			}
-			/*
+			
 			else if (eQuest != NO_MINOR_CIV_QUEST_TYPE)
 			{
 				int iQuestData = pMinorCivAI->GetQuestData1(ePlayer, eQuest);
@@ -1631,21 +1631,21 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 					break;
 				}
 			}
-			else if (pMinorCivAI->GetTurnsSinceThreatenedByBarbarians() >= 0)
+			else if (pMinorCivAI->GetTurnsSinceThreatenedAnnouncement() >= 0)
 			{
 				strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_BEFRIEND_CITY_STATE_QUEST_CLEAR_BARBARIANS");
 				strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
 			}
-			*/
-			else
-			{
-				iMessageRating = 0;
-			}
+			
 			//else
 			//{
-			//	strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_BEFRIEND_CITY_STATE");
-			//	strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
+			//	iMessageRating = 0;
 			//}
+			else
+			{
+				strLoc = Localization::Lookup("TXT_KEY_DIPLOSTRATEGY_BEFRIEND_CITY_STATE");
+				strLoc << GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType())->GetTextKey();
+			}
 		}
 
 		if(iMessageRating > 0)

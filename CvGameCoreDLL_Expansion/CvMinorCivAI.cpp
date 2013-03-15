@@ -3949,6 +3949,16 @@ bool CvMinorCivAI::IsValidQuestForPlayer(PlayerTypes ePlayer, MinorCivQuestTypes
 	return true;
 }
 
+/// What Quest is active for ePlayer?
+MinorCivQuestTypes CvMinorCivAI::GetActiveQuestForPlayer(PlayerTypes ePlayer)
+{
+	CvAssertMsg(ePlayer >= 0, "ePlayer is expected to be non-negative (invalid Index)");
+	CvAssertMsg(ePlayer < MAX_MAJOR_CIVS, "ePlayer is expected to be within maximum bounds (invalid Index)");
+	if(ePlayer < 0 || ePlayer >= MAX_MAJOR_CIVS) return NO_MINOR_CIV_QUEST_TYPE;
+
+	return (MinorCivQuestTypes) m_aiPlayerQuests[ePlayer];
+}
+
 /// Can we give a copy of pQuest to ePlayer (ie. late join to global quest)?
 bool CvMinorCivAI::IsValidQuestCopyForPlayer(PlayerTypes ePlayer, CvMinorCivQuest* pQuest)
 {
