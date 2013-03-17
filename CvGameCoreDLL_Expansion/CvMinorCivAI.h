@@ -274,8 +274,6 @@ public:
 	bool IsEnabledQuest(MinorCivQuestTypes eQuest);
 	bool IsValidQuestForPlayer(PlayerTypes ePlayer, MinorCivQuestTypes eQuest);
 
-	MinorCivQuestTypes GetActiveQuestForPlayer(PlayerTypes ePlayer);
-
 	bool IsValidQuestCopyForPlayer(PlayerTypes ePlayer, CvMinorCivQuest* pQuest);
 	bool IsGlobalQuest(MinorCivQuestTypes eQuest) const;
 	bool IsPersonalQuest(MinorCivQuestTypes eQuest) const;
@@ -296,6 +294,8 @@ public:
 	int GetQuestCountdownForPlayer(PlayerTypes ePlayer);
 	void SetQuestCountdownForPlayer(PlayerTypes ePlayer, int iValue);
 	void ChangeQuestCountdownForPlayer(PlayerTypes ePlayer, int iChange);
+
+	MinorCivQuestTypes GetFirstActiveQuestForPlayer(PlayerTypes ePlayer);
 
 	// For debugging and testing:
 	bool AddQuestIfAble(PlayerTypes eMajor, MinorCivQuestTypes eQuest);

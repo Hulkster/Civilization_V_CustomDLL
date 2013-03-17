@@ -3307,6 +3307,22 @@ void CvMinorCivAI::AddQuestCopyForPlayer(PlayerTypes ePlayer, CvMinorCivQuest* p
 	GET_PLAYER(ePlayer).GetDiplomacyAI()->LogMinorCivQuestReceived(GetPlayer()->GetID(), GetEffectiveFriendshipWithMajorTimes100(ePlayer), GetEffectiveFriendshipWithMajorTimes100(ePlayer), pQuest->GetType());
 }
 
+/// Returning 1st valid quest for player if there are any
+MinorCivQuestTypes CvMinorCivAI::GetFirstActiveQuestForPlayer(PlayerTypes ePlayer)
+{
+	CvAssertMsg(ePlayer >= 0, "ePlayer is expected to be non-negative (invalid Index)");
+	CvAssertMsg(ePlayer < MAX_MAJOR_CIVS, "ePlayer is expected to be within maximum bounds (invalid Index)");
+	if(ePlayer < 0 || ePlayer >= MAX_MAJOR_CIVS) return NO_MINOR_CIV_QUEST_TYPE;
+
+	if (m_QuestsGiven[ePlayer].size() > 0)
+	{
+		return m_QuestsGiven[ePlayer].begin()->GetType();
+	}
+	else
+	{
+		return NO_MINOR_CIV_QUEST_TYPE;
+	}
+}
 
 /// Called on first contact with major.  Have major join global quests that are already in progress (ex. contests).
 /// Works on the assumption that this minor can only give out one of each type of global quest at a time.
@@ -3947,16 +3963,6 @@ bool CvMinorCivAI::IsValidQuestForPlayer(PlayerTypes ePlayer, MinorCivQuestTypes
 	}
 
 	return true;
-}
-
-/// What Quest is active for ePlayer?
-MinorCivQuestTypes CvMinorCivAI::GetActiveQuestForPlayer(PlayerTypes ePlayer)
-{
-	CvAssertMsg(ePlayer >= 0, "ePlayer is expected to be non-negative (invalid Index)");
-	CvAssertMsg(ePlayer < MAX_MAJOR_CIVS, "ePlayer is expected to be within maximum bounds (invalid Index)");
-	if(ePlayer < 0 || ePlayer >= MAX_MAJOR_CIVS) return NO_MINOR_CIV_QUEST_TYPE;
-
-	return (MinorCivQuestTypes) m_aiPlayerQuests[ePlayer];
 }
 
 /// Can we give a copy of pQuest to ePlayer (ie. late join to global quest)?

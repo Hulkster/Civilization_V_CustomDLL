@@ -1426,7 +1426,7 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 		
 		else
 		{
-			eQuest = pMinorCivAI->GetActiveQuestForPlayer(ePlayer);
+			eQuest = pMinorCivAI->GetFirstActiveQuestForPlayer(ePlayer);
 		}
 		
 
