@@ -1765,7 +1765,8 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 		// when we encounter the first plot that is invalid, the rest of the list will be invalid
 		if(aiPlots[ui] == -1)
 		{
-			break;
+			//break;
+			continue;
 		}
 
 		pPlot = GC.getMap().plotByIndex(aiPlots[ui]);
@@ -1783,8 +1784,10 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 		if(GC.getResourceInfo(eResource)->getResourceUsage() == RESOURCEUSAGE_LUXURY || GC.getResourceInfo(eResource)->getResourceUsage() == RESOURCEUSAGE_STRATEGIC)
 		{
 			// if we don't have any of this resource
-			if(GET_PLAYER(ePlayer).getNumResourceTotal(eResource) < iNumOfResource)
+			if(GET_PLAYER(ePlayer).getNumResourceTotal(eResource) < iNumOfResource && pPlot->getImprovementType() == NO_IMPROVEMENT)
 			{
+				bool tileWorkedByWorker = false;
+				
 				for(int iBuild = 0; iBuild < GC.getNumBuildInfos(); iBuild++)
 				{
 					BuildTypes eBuild = (BuildTypes)iBuild;
@@ -1839,6 +1842,7 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 
 								if(bWorkerAlreadyOnIt)
 								{
+									tileWorkedByWorker = true;
 									break;
 								}
 							}
@@ -1848,6 +1852,10 @@ void CvAdvisorCounsel::BuildCounselList(PlayerTypes ePlayer)
 								eRecommendedResource = eResource;
 								pResourcePlot = pPlot;
 								iNumOfResource = GET_PLAYER(ePlayer).getNumResourceTotal(eResource);
+							}
+							if(tileWorkedByWorker)
+							{
+								break;
 							}
 						}
 					}
