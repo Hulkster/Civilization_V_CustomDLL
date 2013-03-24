@@ -53,7 +53,7 @@ void CvUnitMission::AutoMission(UnitHandle hUnit)
 				}
 			}
 
-			if(!bEscortedBuilder && !hUnit->IsIgnoringDangerWakeup() && !hUnit->IsCombatUnit() && GET_PLAYER(hUnit->getOwner()).GetPlotDanger(*(hUnit->plot())) > 0)
+			if(!bEscortedBuilder && !hUnit->IsIgnoringDangerWakeup() && /*!hUnit->IsCombatUnit() &&*/ GET_PLAYER(hUnit->getOwner()).GetPlotDanger(*(hUnit->plot())) > 0)
 			{
 				hUnit->ClearMissionQueue();
 				hUnit->SetIgnoreDangerWakeup(true);

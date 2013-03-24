@@ -1102,10 +1102,10 @@ inline void FStringA::Release( FStringAData* pkData )
 	FSTRING_CHECK_BUFFER;
 	if ( pkData && ( pkData != FStringA_GetStringInitData() ) && !pkData->m_bFixed )
 	{
-#ifdef		ENABLE_FSTRING_STATS
+/*#ifdef		ENABLE_FSTRING_STATS
 		extern uint g_uiFStringBytesCurrent;
 		g_uiFStringBytesCurrent -= sizeof ( FStringAData ) + ( sizeof ( char ) * pkData->m_iAllocLength + 1 );
-#endif	//	ENABLE_FSTRING_STATS
+#endif	//	ENABLE_FSTRING_STATS*/
 
 		// Free any memory associated with the string
 		delete [] ( byte* )pkData;

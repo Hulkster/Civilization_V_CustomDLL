@@ -2311,6 +2311,7 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::Attack(CvUnit& kAttacker, CvPlot& targ
 
 	kAttacker.SetAutomateType(NO_AUTOMATE);
 	pDefender->SetAutomateType(NO_AUTOMATE);
+	pDefender->SetActivityType(ACTIVITY_AWAKE);
 
 	// slewis - tutorial'd
 	if(kAttacker.getOwner() == GC.getGame().getActivePlayer())
@@ -2524,6 +2525,7 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::AttackRanged(CvUnit& kAttacker, int iX
 		if(!pDefender) return ATTACK_ABORTED;
 
 		pDefender->SetAutomateType(NO_AUTOMATE);
+		pDefender->SetActivityType(ACTIVITY_AWAKE);
 
 		CvCombatInfo kCombatInfo;
 		CvUnitCombat::GenerateRangedCombatInfo(kAttacker, pDefender, *pPlot, &kCombatInfo);
@@ -2618,6 +2620,7 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::AttackAir(CvUnit& kAttacker, CvPlot& t
 		if(!pDefender) return CvUnitCombat::ATTACK_ABORTED;
 
 		pDefender->SetAutomateType(NO_AUTOMATE);
+		pDefender->SetActivityType(ACTIVITY_AWAKE);
 
 		CvCombatInfo kCombatInfo;
 		CvUnitCombat::GenerateAirCombatInfo(kAttacker, pDefender, targetPlot, &kCombatInfo);
@@ -2717,6 +2720,7 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::AttackAirSweep(CvUnit& kAttacker, CvPl
 		CvUnitCombat::GenerateAirSweepCombatInfo(kAttacker, pInterceptor, targetPlot, &kCombatInfo);
 		CvUnit* pkDefender = kCombatInfo.getUnit(BATTLE_UNIT_DEFENDER);
 		pkDefender->SetAutomateType(NO_AUTOMATE);
+		pkDefender->SetActivityType(ACTIVITY_AWAKE);
 		CvAssertMsg(!kAttacker.isDelayedDeath() && !pkDefender->isDelayedDeath(), "Trying to battle and one of the units is already dead!");
 
 		uint uiParentEventID = 0;

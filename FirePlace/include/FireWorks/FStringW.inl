@@ -1017,10 +1017,10 @@ inline void FStringW::Release( FStringWData* pkData )
 	FSTRING_CHECK_BUFFER;
 	if ( pkData && ( pkData != FStringW_GetStringInitData() ) && !pkData->m_bFixed )
 	{
-#ifdef		ENABLE_FSTRING_STATS
+/*#ifdef		ENABLE_FSTRING_STATS
 		extern uint g_uiFStringBytesCurrent;
 		g_uiFStringBytesCurrent -= sizeof ( FStringWData ) + ( sizeof ( char ) * pkData->m_iAllocLength + 1 );
-#endif	//	ENABLE_FSTRING_STATS
+#endif	//	ENABLE_FSTRING_STATS*/
 
 		// Free any memory associated with the string
 		delete [] ( byte* )pkData;
