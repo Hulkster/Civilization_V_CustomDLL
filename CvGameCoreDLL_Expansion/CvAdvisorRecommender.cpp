@@ -298,31 +298,31 @@ int CvAdvisorRecommender::AdvisorInterestInFlavor(AdvisorTypes eAdvisor, FlavorT
 	case ADVISOR_ECONOMIC:
 		if(strFlavorName ==  "FLAVOR_NAVAL_GROWTH")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_NAVAL_TILE_IMPROVEMENT")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_EXPANSION")
 		{
-			return 12;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_HAPPINESS")
 		{
-			return 13;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_GROWTH")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_PRODUCTION")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_GOLD")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_TILE_IMPROVEMENT")
 		{
@@ -330,121 +330,121 @@ int CvAdvisorRecommender::AdvisorInterestInFlavor(AdvisorTypes eAdvisor, FlavorT
 		}
 		else if(strFlavorName ==  "FLAVOR_INFRASTRUCTURE")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_WATER_CONNECTION")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_WONDER")
 		{
-			return 4;
+			return 10;
 		}
 		break;
 	case ADVISOR_MILITARY:
 		if(strFlavorName ==  "FLAVOR_MILITARY_TRAINING")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_OFFENSE")
 		{
-			return 6;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_DEFENSE")
 		{
-			return 5;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_SOLDIER")
 		{
-			return 6;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_MOBILE")
 		{
-			return 8;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_ANTI_MOBILE")
 		{
-			return 5;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_RECON")
 		{
-			return 6;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_HEALING")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_PILLAGE")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_VANGUARD")
 		{
-			return 5;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_RANGED")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_SIEGE")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_NAVAL")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_NAVAL_BOMBARDMENT")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_AIR")
 		{
-			return 5;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_NUKE")
 		{
-			return 11;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_CITY_DEFENSE")
 		{
-			return 9;
+			return 10;
 		}
 		break;
 	case ADVISOR_FOREIGN:
 		if(strFlavorName ==  "FLAVOR_NAVAL_RECON")
 		{
-			return 9;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_CULTURE")
 		{
-			return 7;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_DIPLOMACY")
 		{
-			return 8;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_RELIGION")
 		{
-			return 9;
+			return 10;
 		}
 		break;
 	case ADVISOR_SCIENCE:
 		if(strFlavorName ==  "FLAVOR_SCIENCE")
 		{
-			return 12;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_GREAT_PEOPLE")
 		{
-			return 6;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_WONDER")
 		{
-			return 4;
+			return 10;
 		}
 		else if(strFlavorName ==  "FLAVOR_SPACESHIP")
 		{
-			return 8;
+			return 10;
 		}
 		break;
 	}
