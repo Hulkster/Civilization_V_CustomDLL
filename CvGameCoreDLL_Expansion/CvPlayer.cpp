@@ -11049,10 +11049,49 @@ void CvPlayer::changeGoldenAgeTurns(int iChange)
 			}
 		}
 
+		// Note: This will actually REDUCE the GA meter if the player is running in the red
+		ChangeGoldenAgeProgressMeter(GetExcessHappiness());
+
+		// Enough GA Progress to trigger new GA?
+		if(GetGoldenAgeProgressMeter() >= GetGoldenAgeProgressThreshold())
+		{
+			int iOverflow = GetGoldenAgeProgressMeter() - GetGoldenAgeProgressThreshold();
+
+			SetGoldenAgeProgressMeter(iOverflow);
+			ChangeNumGoldenAges(1);
+
+			if(isHuman() && !GC.getGame().isGameMultiPlayer()&& GET_PLAYER(GC.getGame().getActivePlayer()).isLocalPlayer())
+			{
+				gDLL->UnlockAchievement(ACHIEVEMENT_GOLDEN_AGE);
+
+				const char* strLeader = getLeaderTypeKey();
+				if(GetNumGoldenAges() >=5 && NULL != strLeader && strcmp(strLeader, "LEADER_DARIUS") == 0)
+				{
+					gDLL->UnlockAchievement(ACHIEVEMENT_SPECIAL_ARCHAEMENNID);
+				}
+			}
+
+			int iLength = getGoldenAgeLength();
+			changeGoldenAgeTurns(iLength);
+
+			// If it's the active player then show the popup
+			if(GetID() == GC.getGame().getActivePlayer())
+			{
+				// Don't show in MP
+				if(!GC.getGame().isNetworkMultiPlayer())	// KWG: Candidate for !GC.getGame().isMPOption(MPOPTION_SIMULTANEOUS_TURNS)
+				{
+					CvPopupInfo kPopupInfo(BUTTONPOPUP_GOLDEN_AGE_REWARD);
+					gDLL->getInterfaceIFace()->AddPopup(kPopupInfo);
+				}
+			}
+		}
+
 		if(GetID() == GC.getGame().getActivePlayer())
 		{
 			gDLL->getInterfaceIFace()->setDirty(GameData_DIRTY_BIT, true);
 		}
+
+		
 	}
 }
 
